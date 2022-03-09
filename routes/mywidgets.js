@@ -1,6 +1,6 @@
 const express = require("express");
 // Create variable for database model
-const Saved = require("../models/widgets");
+const Saved = require("../models/widget");
 // Instantiate a router (mini app that only handles routes)
 const router = express.Router();
 

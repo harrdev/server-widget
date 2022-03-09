@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 // Database configuration
 const db = require("./config/db");
+// Routes
+const mywidgets = require("./routes/mywidgets");
 // Server and Client Ports
 const serverDevPort = 8000;
 const clientDevPort = 3000;
@@ -21,6 +23,9 @@ app.use(
 );
 // express.json middleware to parse JSON requests into JS objects before they reach the route files
 app.use(express.json());
+
+// Register Route file
+app.use(mywidgets);
 
 app.get("/", (req, res) => {
   res.send("Home Route");
