@@ -5,7 +5,9 @@ const Saved = require("../models/widget");
 const router = express.Router();
 
 // GET HTTP request - get and show all widgets
-router.get("/FaveWidgets", (req, res) => {
+router.get("/Widgets", (req, res) => {
+  console.log("Server-side GET Route hit");
+  console.log("Req.body: ", req.body);
   Saved.find()
     .then((widgets) => {
       return widgets.map((widget) => widget.toObject());
@@ -18,6 +20,8 @@ router.get("/FaveWidgets", (req, res) => {
 
 // PATCH HTTP request - edit selected widget
 router.patch("/Widgets/:id", (req, res) => {
+  console.log("Server-side PATCH Route hit");
+  console.log("Req.body: ", req.body);
   Saved.findOneAndUpdate(
     {
       _id: req.params.id,
@@ -29,7 +33,7 @@ router.patch("/Widgets/:id", (req, res) => {
         quantity: req.body.info.quantity,
         cost: req.body.info.cost,
         manufacturer: req.body.info.manufacturer,
-        notes: req.body.info.notes,
+        notes: req.body.info.notes
       },
     }
   )
@@ -40,7 +44,9 @@ router.patch("/Widgets/:id", (req, res) => {
 });
 
 // DELETE HTTP request - delete selected widget
-router.delete("/FaveWidgets/:id", (req, res) => {
+router.delete("/Widgets/:id", (req, res) => {
+  console.log("Server-side DELETE Route hit");
+  console.log("Req.body: ", req.body);
   Saved.findOneAndDelete({
     _id: req.params.id,
   })
