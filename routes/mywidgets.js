@@ -32,6 +32,7 @@ router.patch("/Widgets/:id", (req, res) => {
         quantity: req.body.info.quantity,
         cost: req.body.info.cost,
         manufacturer: req.body.info.manufacturer,
+        madeAt: req.body.info.madeAt,
         notes: req.body.info.notes
       },
     }
