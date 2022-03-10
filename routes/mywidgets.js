@@ -7,7 +7,6 @@ const router = express.Router();
 // GET HTTP request - get and show all widgets
 router.get("/Widgets", (req, res) => {
   console.log("Server-side GET Route hit");
-  console.log("Req.body: ", req.body);
   Saved.find()
     .then((widgets) => {
       return widgets.map((widget) => widget.toObject());
@@ -68,6 +67,7 @@ router.post("/Widgets", (req, res) => {
     quantity: req.body.info.quantity,
     cost: req.body.info.cost,
     manufacturer: req.body.info.manufacturer,
+    madeAt: req.body.info.madeAt,
     notes: req.body.info.notes,
   })
     .then((addedWidget) => {

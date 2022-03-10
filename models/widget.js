@@ -22,6 +22,10 @@ const WidgetsSchema = new mongoose.Schema(
 			type: String,
 			required: false,
 		},
+        madeAt: {
+            type: String,
+            required: false,
+        },
         notes: {
             type: String,
             required: false,
